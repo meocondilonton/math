@@ -2,8 +2,9 @@
 #define __HELLOWORLD_SCENE_H__
 
 #include "cocos2d.h"
+#include "ui/CocosGUI.h"
 
-class HelloWorld : public cocos2d::Scene
+class GameScene : public cocos2d::Scene
 {
 public:
     static cocos2d::Scene* createScene();
@@ -11,10 +12,13 @@ public:
     virtual bool init();
     
     // a selector callback
-    void menuCloseCallback(cocos2d::Ref* pSender);
+    void menuTrueCallback(cocos2d::Ref* pSender);
+    void menuFalseCallback(cocos2d::Ref* pSender);
+    
+    void newGame();
     
     // implement the "static create()" method manually
-    CREATE_FUNC(HelloWorld);
+    CREATE_FUNC(GameScene);
 };
 
 #endif // __HELLOWORLD_SCENE_H__

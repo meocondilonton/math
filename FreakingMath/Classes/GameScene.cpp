@@ -1,16 +1,16 @@
-#include "HelloWorldScene.h"
+#include "GameScene.h"
 #include "SimpleAudioEngine.h"
 #include "CCShake.hpp"
 
 USING_NS_CC;
 
-Scene* HelloWorld::createScene()
+Scene* GameScene::createScene()
 {
-    return HelloWorld::create();
+    return GameScene::create();
 }
 
 // on "init" you need to initialize your instance
-bool HelloWorld::init()
+bool GameScene::init()
 {
     //////////////////////////////
     // 1. super init first
@@ -23,23 +23,21 @@ bool HelloWorld::init()
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
     /////////////////////////////
-    // 2. add a menu item with "X" image, which is clicked to quit the program
-    //    you may modify it.
-
-    // add a "close" icon to exit the progress. it's an autorelease object
-    auto closeItem = MenuItemImage::create(
-                                           "CloseNormal.png",
-                                           "CloseSelected.png",
-                                           CC_CALLBACK_1(HelloWorld::menuCloseCallback, this));
+ 
+    ui::Button* falseItem = ui::Button::create("false.png","false_select.png");
+    falseItem->setPosition(Vec2(origin.x +  visibleSize.width - falseItem->getContentSize().width/2 - 10 ,
+                                origin.y + 10 + falseItem->getContentSize().height/2));
+    falseItem->addTouchEventListener( CC_CALLBACK_1(GameScene::menuFalseCallback, this) );
+    this->addChild(falseItem);
     
-    closeItem->setPosition(Vec2(origin.x + visibleSize.width - closeItem->getContentSize().width/2 ,
-                                origin.y + closeItem->getContentSize().height/2));
-
-    // create menu, it's an autorelease object
-    auto menu = Menu::create(closeItem, NULL);
-    menu->setPosition(Vec2::ZERO);
-    this->addChild(menu, 1);
-
+    ui::Button* trueItem = ui::Button::create("true.png","true_select.png");
+    trueItem->setPosition(Vec2(origin.x + 10 + trueItem->getContentSize().width/2,
+                               origin.y + 10 + trueItem->getContentSize().height/2));
+    trueItem->addTouchEventListener( CC_CALLBACK_1(GameScene::menuTrueCallback, this) );
+    this->addChild(trueItem);
+    
+   
+    
     /////////////////////////////
     // 3. add your codes below...
 
@@ -67,9 +65,14 @@ bool HelloWorld::init()
     return true;
 }
 
-
-void HelloWorld::menuCloseCallback(Ref* pSender)
+void GameScene::newGame()
 {
+    
+}
+
+void GameScene::menuTrueCallback(Ref* pSender)
+{
+    
     //Close the cocos2d-x game scene and quit the application
 //    Director::getInstance()->end();
 //
@@ -85,3 +88,34 @@ void HelloWorld::menuCloseCallback(Ref* pSender)
     this->runAction(CCShake::actionWithDuration(0.5f, 1.0f));
     
 }
+
+
+void GameScene::menuFalseCallback(Ref* pSender)
+{
+    
+    this->runAction(CCShake::actionWithDuration(0.5f, 1.0f));
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
