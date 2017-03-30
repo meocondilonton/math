@@ -82,6 +82,6 @@ void HelloWorld::menuCloseCallback(Ref* pSender)
     //EventCustom customEndEvent("game_scene_close_event");
     //_eventDispatcher->dispatchEvent(&customEndEvent);
     
-    this->runAction(CCShake::actionWithDuration(3.0f, 5.0f));
+    this->runAction(CCShake::actionWithDuration(0.5f, 1.0f));
     
 }
