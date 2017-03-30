@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>UIRequiredDeviceCapabilities</key>
+	<dict>
+		<key>gamekit</key>
+		<true/>
+	</dict>
+	<key>appleId</key>
+	<string>philong8390@gmail.com</string>
+	<key>artistId</key>
+	<integer>680068299</integer>
+	<key>artistName</key>
+	<string>Bang Nguyen</string>
+	<key>bundleDisplayName</key>
+	<string>Freaking Math</string>
+	<key>bundleShortVersionString</key>
+	<string>2.0</string>
+	<key>bundleVersion</key>
+	<string>2005</string>
+	<key>com.apple.iTunesStore.downloadInfo</key>
+	<dict>
+		<key>accountInfo</key>
+		<dict>
+			<key>AccountStoreFront</key>
+			<string>143471-2,32</string>
+			<key>AppleID</key>
+			<string>philong8390@gmail.com</string>
+			<key>DSPersonID</key>
+			<integer>1845440373</integer>
+			<key>DownloaderID</key>
+			<integer>0</integer>
+			<key>FamilyID</key>
+			<integer>0</integer>
+			<key>FirstName</key>
+			<string>nguyen</string>
+			<key>LastName</key>
+			<string>long</string>
+			<key>PurchaserID</key>
+			<integer>1845440373</integer>
+			<key>UserName</key>
+			<string>nguyen long</string>
+		</dict>
+		<key>purchaseDate</key>
+		<string>2017-03-30T02:59:41Z</string>
+	</dict>
+	<key>copyright</key>
+	<string>© Monkaper Studio</string>
+	<key>drmVersionNumber</key>
+	<integer>0</integer>
+	<key>fileExtension</key>
+	<string>.app</string>
+	<key>gameCenterEnabled</key>
+	<true/>
+	<key>gameCenterEverEnabled</key>
+	<true/>
+	<key>genre</key>
+	<string>Games</string>
+	<key>genreId</key>
+	<integer>6014</integer>
+	<key>is-purchased-redownload</key>
+	<true/>
+	<key>itemId</key>
+	<integer>846439108</integer>
+	<key>itemName</key>
+	<string>Freaking Math</string>
+	<key>kind</key>
+	<string>software</string>
+	<key>playlistName</key>
+	<string>Bang Nguyen</string>
+	<key>product-type</key>
+	<string>ios-app</string>
+	<key>purchaseDate</key>
+	<date>2017-03-30T02:59:41Z</date>
+	<key>rating</key>
+	<dict>
+		<key>content</key>
+		<string>Advisory.NO.GAMBLING_CONTESTS and Advisory.NO.UNRESTRICTED_WEB_ACCESS</string>
+		<key>label</key>
+		<string>4+</string>
+		<key>rank</key>
+		<integer>100</integer>
+		<key>system</key>
+		<string>itunes-games</string>
+	</dict>
+	<key>releaseDate</key>
+	<string>2014-03-30T07:19:07Z</string>
+	<key>s</key>
+	<integer>143471</integer>
+	<key>softwareIcon57x57URL</key>
+	<string>http://a105.phobos.apple.com/us/r30/Purple3/v4/3e/a0/2a/3ea02a67-344b-7104-1863-0040d22f3390/icon114x114.jpeg</string>
+	<key>softwareIconNeedsShine</key>
+	<false/>
+	<key>softwareSupportedDeviceIds</key>
+	<array>
+		<integer>2</integer>
+		<integer>4</integer>
+		<integer>9</integer>
+	</array>
+	<key>softwareVersionBundleId</key>
+	<string>bangdev.TrueFalseMath</string>
+	<key>softwareVersionExternalIdentifier</key>
+	<integer>813522006</integer>
+	<key>softwareVersionExternalIdentifiers</key>
+	<array>
+		<integer>812095169</integer>
+		<integer>813522006</integer>
+	</array>
+	<key>storeCohort</key>
+	<string>6|date=1490841000000&amp;sf=143471&amp;pgtp=Search&amp;prpg=Search&amp;ctxt=Search&amp;issrch=1</string>
+	<key>subgenres</key>
+	<array>
+		<dict>
+			<key>genre</key>
+			<string>Educational</string>
+			<key>genreId</key>
+			<integer>7008</integer>
+		</dict>
+		<dict>
+			<key>genre</key>
+			<string>Puzzle</string>
+			<key>genreId</key>
+			<integer>7012</integer>
+		</dict>
+	</array>
+	<key>userName</key>
+	<string>nguyen long</string>
+	<key>vendorId</key>
+	<integer>2111808</integer>
+	<key>versionRestrictions</key>
+	<integer>16843008</integer>
+</dict>
+</plist>

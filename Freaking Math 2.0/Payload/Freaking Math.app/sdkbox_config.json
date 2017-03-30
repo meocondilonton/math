@@ -1,0 +1,159 @@
+{
+    "ios" : {
+        "GoogleAnalytics" : {
+            "enabled" : true,
+            "trackingCode" : "UA-50849710-3"
+        },
+        "AdMob" : {
+            "enabled" : true,
+            "test" : false,
+            "ads" : {
+                "AdMob Fullscreen" : {
+                    "id" : "ca-app-pub-7966430217821763\/9467338338",
+                    "type" : "interstitial",
+                    "is_designed_for_families" : true,
+                    "alignment" : "center"
+                },
+                "AdMob Top Banner" : {
+                    "id" : "ca-app-pub-7966430217821763\/4185004336",
+                    "type" : "banner",
+                    "is_designed_for_families" : true,
+                    "alignment" : "top"
+                }
+            }
+        },
+        "sdkboxplay" : {
+            "enabled" : true,
+            "debug" : false,
+            "connect_on_start" : true,
+            "show_achievement_notification" : true,
+            "leaderboards" : [
+                {
+                    "id" : "freakingmath",
+                    "name" : "Leaderboard"
+                },
+                {
+                    "id" : "freakingmath.20sec",
+                    "name" : "Leaderboard Challenge 20"
+                }
+            ],
+            "achievements" : [
+                {
+                    "id" : "freakingmath.firstplay",
+                    "name" : "First Play",
+                    "incremental" : false
+                },
+                {
+                    "id" : "freakingmath.beginner",
+                    "name" : "Beginner",
+                    "incremental" : false
+                },
+                {
+                    "id" : "freakingmath.amateur",
+                    "name" : "Amateur",
+                    "incremental" : false
+                },
+                {
+                    "id" : "freakingmath.professional",
+                    "name" : "Professional",
+                    "incremental" : false
+                },
+                {
+                    "id" : "freakingmath.expert",
+                    "name" : "Expert",
+                    "incremental" : false
+                },
+                {
+                    "id" : "freakingmath.master",
+                    "name" : "Master",
+                    "incremental" : false
+                },
+                {
+                    "id" : "freakingmath.mastermaster",
+                    "name" : "Master of Master",
+                    "incremental" : false
+                }
+            ]
+        }
+    },
+    "android" : {
+        "GoogleAnalytics" : {
+            "enabled" : true,
+            "trackingCode" : "UA-50849710-5"
+        },
+        "AdMob" : {
+            "enabled" : true,
+            "test" : true,
+            "ads" : {
+                "AdMob Top Banner" : {
+                    "id" : "ca-app-pub-7966430217821763\/6436144337",
+                    "type" : "banner",
+                    "is_designed_for_families" : true,
+                    "alignment" : "top"
+                },
+                "AdMob Fullscreen" : {
+                    "id" : "ca-app-pub-7966430217821763\/1866343934",
+                    "type" : "interstitial",
+                    "is_designed_for_families" : true,
+                    "alignment" : "center"
+                }
+            }
+        },
+        "sdkboxplay" : {
+            "enabled" : true,
+            "debug" : false,
+            "connect_on_start" : true,
+            "show_achievement_notification" : true,
+            "leaderboards" : [
+                {
+                    "id" : "CgkI1puu_9sYEAIQAA",
+                    "name" : "Leaderboard"
+                },
+                {
+                    "id" : "CgkI1puu_9sYEAIQFA",
+                    "name" : "Leaderboard Challenge 20"
+                }
+            ],
+            "achievements" : [
+                {
+                    "id" : "CgkI1puu_9sYEAIQDw",
+                    "name" : "First Play",
+                    "incremental" : false
+                },
+                {
+                    "id" : "CgkI1puu_9sYEAIQAw",
+                    "name" : "Beginner",
+                    "incremental" : false
+                },
+                {
+                    "id" : "CgkI1puu_9sYEAIQBA",
+                    "name" : "Amateur",
+                    "incremental" : false
+                },
+                {
+                    "id" : "CgkI1puu_9sYEAIQBQ",
+                    "name" : "Professional",
+                    "incremental" : false
+                },
+                {
+                    "id" : "CgkI1puu_9sYEAIQBg",
+                    "name" : "Expert",
+                    "incremental" : false
+                },
+                {
+                    "id" : "CgkI1puu_9sYEAIQDQ",
+                    "name" : "Master",
+                    "incremental" : false
+                },
+                {
+                    "id" : "CgkI1puu_9sYEAIQAg",
+                    "name" : "Master of Master",
+                    "incremental" : false
+                }
+            ]
+        }
+    },
+    "playphone" : [
+        
+    ]
+}
