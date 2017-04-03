@@ -23,20 +23,23 @@ bool GameScene::init()
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
     /////////////////////////////
- 
-    ui::Button* falseItem = ui::Button::create("false.png","false_select.png");
-    falseItem->setPosition(Vec2(origin.x +  visibleSize.width - falseItem->getContentSize().width/2 - 10 ,
-                                origin.y + 10 + falseItem->getContentSize().height/2));
-    falseItem->addTouchEventListener( CC_CALLBACK_1(GameScene::menuFalseCallback, this) );
-    this->addChild(falseItem);
+    this->colorLayer =  LayerColor::create(Color4B(200,0,0,255), visibleSize.width, visibleSize.height);
+    this->colorLayer->setPosition(Vec2(origin.x ,
+                                origin.y));
+    this->addChild(colorLayer);
     
     ui::Button* trueItem = ui::Button::create("true.png","true_select.png");
-    trueItem->setPosition(Vec2(origin.x + 10 + trueItem->getContentSize().width/2,
-                               origin.y + 10 + trueItem->getContentSize().height/2));
+    trueItem->setPosition(Vec2(origin.x + 15 + trueItem->getContentSize().width/2,
+                               origin.y + 15 + trueItem->getContentSize().height/2));
     trueItem->addTouchEventListener( CC_CALLBACK_1(GameScene::menuTrueCallback, this) );
     this->addChild(trueItem);
     
-   
+    ui::Button* falseItem = ui::Button::create("false.png","false_select.png");
+    falseItem->setPosition(Vec2(origin.x +  visibleSize.width - falseItem->getContentSize().width/2 - 15 ,
+                                origin.y + 15 + falseItem->getContentSize().height/2));
+    falseItem->addTouchEventListener( CC_CALLBACK_1(GameScene::menuFalseCallback, this) );
+    this->addChild(falseItem);
+
     
     /////////////////////////////
     // 3. add your codes below...
@@ -44,23 +47,24 @@ bool GameScene::init()
     // add a label shows "Hello World"
     // create and initialize a label
     
-    auto label = Label::createWithTTF("Hello World", "fonts/Marker Felt.ttf", 24);
-    
+     this->labelRow1 = Label::createWithTTF("2+2", "fonts/relay-black.ttf", 60);
     // position the label on the center of the screen
-    label->setPosition(Vec2(origin.x + visibleSize.width/2,
-                            origin.y + visibleSize.height - label->getContentSize().height));
+    labelRow1->setPosition(Vec2(origin.x + visibleSize.width/2,
+                            origin.y + visibleSize.height/2 + labelRow1->getContentSize().height));
 
     // add the label as a child to this layer
-    this->addChild(label, 1);
+    this->addChild(this->labelRow1, 1);
+    
+    
+    this->labelRow2 = Label::createWithTTF("=6", "fonts/relay-black.ttf", 60);
+    // position the label on the center of the screen
+    labelRow2->setPosition(Vec2(origin.x + visibleSize.width/2,
+                                origin.y + visibleSize.height/2 - 0.25*labelRow2->getContentSize().height));
+    
+    // add the label as a child to this layer
+    this->addChild(this->labelRow2, 1);
 
-    // add "HelloWorld" splash screen"
-    auto sprite = Sprite::create("HelloWorld.png");
-
-    // position the sprite on the center of the screen
-    sprite->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
-
-    // add the sprite as a child to this layer
-    this->addChild(sprite, 0);
+   
     
     return true;
 }
@@ -98,7 +102,10 @@ void GameScene::menuFalseCallback(Ref* pSender)
 }
 
 
-
+cocos2d::Color4B GameScene:: getRandomColor()
+{
+    
+}
 
 
 

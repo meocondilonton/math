@@ -16,7 +16,12 @@ public:
     void menuFalseCallback(cocos2d::Ref* pSender);
     
     void newGame();
+    cocos2d::Color4B getRandomColor();
     
+protected:
+     cocos2d::LayerColor *colorLayer;
+     cocos2d::Label *labelRow1;
+     cocos2d::Label *labelRow2;
     // implement the "static create()" method manually
     CREATE_FUNC(GameScene);
 };
