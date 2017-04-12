@@ -25,8 +25,10 @@ public:
      int getRandomNumber();
      int getRandomBigNumber();
      int getRandomSmallNumber();
+     int getRandomMediumNumber();
      int getRandomResultNumber(int max);
      int getRealResultNumber();
+    void updateNewQuestion();
     
 protected:
      cocos2d::LayerColor *colorLayer;

@@ -73,11 +73,16 @@ bool GameScene::init()
 
 void GameScene::newGame()
 {
+    this->updateNewQuestion();
+}
+
+void GameScene::updateNewQuestion()
+{
     srand(time(NULL));
     std::string row1;
     this->numA = this->getRandomNumber() ;
     this->numB = this->getRandomNumber() ;
-
+    
     row1 =  std::to_string(this->numA ) + "+" +   std::to_string(this->numB);
     this->labelRow1->setString(row1.c_str());
     
@@ -98,31 +103,44 @@ void GameScene::nextRound()
     this->labelRow1->stopAllActions();
     this->labelRow2->stopAllActions();
     
+    //quest
     
-    
-    float timeMove = 0.5;
-    auto moveTo = MoveTo::create(timeMove, Vec2(0, this->row1Pos.y));
+    float timeMove = 0.2;
+    auto moveOut = MoveTo::create(timeMove, Vec2(0, this->row1Pos.y));
     auto fadeOut = FadeOut::create(timeMove);
     
-    auto firstSpawn = Spawn::createWithTwoActions(moveTo, fadeOut);
-    
+    auto firstSpawn = Spawn::createWithTwoActions(moveOut, fadeOut);
     auto callbackChangePosition =  CallFunc::create([&, this](){
-        
         auto visibleSize = Director::getInstance()->getWinSize();
-          CCLOG("reset: %f %f", visibleSize.width, this->labelRow1->getPosition().y);
         this->labelRow1->setPosition(Vec2(visibleSize.width, this->labelRow1->getPosition().y));
+        
+        //update question
+        this->updateNewQuestion();
+        
     });
-     CCLOG("curent: %f %f", this->row1Pos.x, this->row1Pos.y);
-    auto moveTo2 = MoveTo::create(timeMove, Vec2(this->row1Pos.x, this->row1Pos.y));
+    auto moveIn = MoveTo::create(timeMove, Vec2(this->row1Pos.x, this->row1Pos.y));
     auto fadeIn = FadeIn::create(timeMove);
-    
-    auto secondSpawn = Spawn::createWithTwoActions(moveTo2, fadeIn);
-    
+    auto secondSpawn = Spawn::createWithTwoActions(moveIn, fadeIn);
     auto sequence = Sequence::create(firstSpawn, callbackChangePosition, secondSpawn, nullptr);
-
     
     this->labelRow1->runAction(sequence);
-//     this->labelRow1->runAction(moveBy);
+    
+    //result
+    auto moveOut2 = MoveTo::create(timeMove, Vec2(0, this->row2Pos.y));
+    auto fadeOut2 = FadeOut::create(timeMove);
+    
+    auto firstSpawn2 = Spawn::createWithTwoActions(moveOut2, fadeOut2);
+    auto callbackChangePosition2 =  CallFunc::create([&, this](){
+        auto visibleSize = Director::getInstance()->getWinSize();
+        this->labelRow2->setPosition(Vec2(visibleSize.width, this->labelRow2->getPosition().y));
+        
+    });
+    auto moveIn2 = MoveTo::create(timeMove, Vec2(this->row2Pos.x, this->row2Pos.y));
+    auto fadeIn2 = FadeIn::create(timeMove);
+    auto secondSpawn2 = Spawn::createWithTwoActions(moveIn2, fadeIn2);
+    auto sequence2 = Sequence::create(firstSpawn2, callbackChangePosition2, secondSpawn2, nullptr);
+ 
+    this->labelRow2->runAction(sequence2);
 
 }
 
@@ -135,7 +153,7 @@ void GameScene::menuTrueCallback(Ref* pSender, cocos2d::ui::Widget::TouchEventTy
         if(this->numResult == this->getRealResultNumber()){
             this->nextRound();
         }else{
-            this->runAction(CCShake::actionWithDuration(0.5f, 1.0f));
+            this->runAction(CCShake::actionWithDuration(0.5f, 0.5f));
         }
     }
    
@@ -148,7 +166,7 @@ void GameScene::menuFalseCallback(Ref* pSender , cocos2d::ui::Widget::TouchEvent
     if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
     {
         if(this->numResult == this->getRealResultNumber()){
-            this->runAction(CCShake::actionWithDuration(0.5f, 1.0f));
+            this->runAction(CCShake::actionWithDuration(0.5f, 0.5f));
         }else{
             this->nextRound();
         }
@@ -161,7 +179,13 @@ int GameScene::getRandomNumber()
 {
       auto ran =  rand() % 10;
     if(ran > 8){
-        return this->getRandomBigNumber();
+        auto ran2 =  rand() % 10;
+        if(ran2 > 7){
+            return this->getRandomBigNumber();
+        }else{
+              return this->getRandomMediumNumber();
+        }
+        
     }else{
         return this->getRandomSmallNumber();
     }
@@ -172,9 +196,15 @@ int GameScene::getRandomBigNumber()
       return  rand() % 8 + 8;
 }
 
+int GameScene::getRandomMediumNumber()
+{
+    return  rand() % 3 + 5;
+}
+
+
 int GameScene::getRandomSmallNumber()
 {
-    return  rand() % 8 + 1;
+    return  rand() % 5 + 1;
 }
 
 int GameScene::getRandomResultNumber(int max)
