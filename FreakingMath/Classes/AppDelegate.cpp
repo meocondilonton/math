@@ -1,5 +1,6 @@
 #include "AppDelegate.h"
 #include "GameScene.h"
+#include "ui/CocosGUI.h"
 
 USING_NS_CC;
 
@@ -45,7 +46,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
 #endif
         director->setOpenGLView(glview);
     }
-
+   
+ 
     // turn on display FPS
     director->setDisplayStats(false);
 

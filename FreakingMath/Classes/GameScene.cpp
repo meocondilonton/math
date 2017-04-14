@@ -1,6 +1,7 @@
 #include "GameScene.h"
 #include "SimpleAudioEngine.h"
 #include "CCShake.hpp"
+#include "SoundTool.hpp"
 
 USING_NS_CC;
 
@@ -65,6 +66,12 @@ bool GameScene::init()
 
     // add the label as a child to this layer
     this->addChild(this->labelRow2, 1);
+    
+    
+    //add popup
+    this->popup = Popup::create();
+    addChild(popup,1000);
+    
 
     this->newGame();
     
@@ -144,16 +151,29 @@ void GameScene::nextRound()
 
 }
 
+void GameScene::answareWrong()
+{
+    auto callback =  CallFunc::create([&, this](){
+        this->popup->appear();
+        
+    });
+    auto shake = CCShake::actionWithDuration(0.5f, 0.3f);
+     auto sequence = Sequence::create(shake, callback, nullptr);
+    SoundTool::getInstance()->playEffect("res/sound/fail.wav");
+    this->runAction(sequence);
+}
+
 void GameScene::menuTrueCallback(Ref* pSender, cocos2d::ui::Widget::TouchEventType type)
 {
     
     if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
     {
-         CCLOG("menuTrueCallback" );
+        
         if(this->numResult == this->getRealResultNumber()){
+              SoundTool::getInstance()->playEffect("res/sound/scored.wav");
             this->nextRound();
         }else{
-            this->runAction(CCShake::actionWithDuration(0.5f, 0.5f));
+            this->answareWrong();
         }
     }
    
@@ -163,11 +183,13 @@ void GameScene::menuTrueCallback(Ref* pSender, cocos2d::ui::Widget::TouchEventTy
 
 void GameScene::menuFalseCallback(Ref* pSender , cocos2d::ui::Widget::TouchEventType type)
 {
+    
     if (type == cocos2d::ui::Widget::TouchEventType::ENDED)
     {
         if(this->numResult == this->getRealResultNumber()){
-            this->runAction(CCShake::actionWithDuration(0.5f, 0.5f));
+               this->answareWrong();
         }else{
+             SoundTool::getInstance()->playEffect("res/sound/scored.wav");
             this->nextRound();
         }
     }

@@ -7,6 +7,8 @@
 #include <string.h>
 #include <sstream>
 #include <ctime>
+#include "MenuScreen.hpp"
+#include "Popup.hpp"
 
 class GameScene : public cocos2d::Scene
 {
@@ -29,11 +31,13 @@ public:
      int getRandomResultNumber(int max);
      int getRealResultNumber();
     void updateNewQuestion();
+    void answareWrong();
     
 protected:
      cocos2d::LayerColor *colorLayer;
      cocos2d::Label *labelRow1;
      cocos2d::Label *labelRow2;
+     Popup  *popup ;
      int numA;
      int numB;
      int numResult;
