@@ -72,7 +72,19 @@ bool GameScene::init()
     this->popup = Popup::create();
     addChild(popup,1000);
     
-
+    //add progressbar
+    ProgressTimer *fuelBar;
+    Sprite* bar =  Sprite::create("bar.png");
+    fuelBar = ProgressTimer::create(bar);
+    auto scale = visibleSize.width / bar->getContentSize().width;
+    fuelBar->setType(ProgressTimer::Type::BAR);
+//    fuelBar->setScale(scale);
+    fuelBar->setAnchorPoint(Vec2(0, 0));
+    fuelBar->setBarChangeRate(Vec2(0, 1)); // To make width 100% always
+    fuelBar->setTag(1);                  // Tag our object for easy access
+    this->addChild(fuelBar);
+    fuelBar->setPercentage(100);
+    
     this->newGame();
     
     return true;
