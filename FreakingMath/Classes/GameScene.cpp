@@ -21,6 +21,8 @@ bool GameScene::init()
     }
     
     auto visibleSize = Director::getInstance()->getVisibleSize();
+     auto screenSize = Director::getInstance()->getWinSize();
+    Size actualWinSize = Director::getInstance()->getWinSizeInPixels();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
     /////////////////////////////
@@ -73,16 +75,29 @@ bool GameScene::init()
     addChild(popup,1000);
     
     //add progressbar
-    ProgressTimer *fuelBar;
+    
     Sprite* bar =  Sprite::create("bar.png");
+   
+
+    bar->setAnchorPoint(Vec2(-1, -0.5f));
+    bar->setPosition(Vec2(0, 0));
+    auto scale =  675.0f/640.0f ;
+    log("this is a log %f" , scale);
+    
+    bar->setFlippedX(true);
+    bar->setScale(scale);
+    
+    this->addChild(bar);
+
     fuelBar = ProgressTimer::create(bar);
-    auto scale = visibleSize.width / bar->getContentSize().width;
     fuelBar->setType(ProgressTimer::Type::BAR);
-//    fuelBar->setScale(scale);
+     fuelBar->setScale(scale, 1);
     fuelBar->setAnchorPoint(Vec2(0, 0));
-    fuelBar->setBarChangeRate(Vec2(0, 1)); // To make width 100% always
+    fuelBar->setPosition(Vec2(origin.x, 0));
+    fuelBar->setBarChangeRate(Vec2(1, 0)); // To make width 100% always
     fuelBar->setTag(1);                  // Tag our object for easy access
-    this->addChild(fuelBar);
+    fuelBar->setMidpoint(Vec2(0.0f, 0.1f));
+//    this->addChild(fuelBar);
     fuelBar->setPercentage(100);
     
     this->newGame();
@@ -115,6 +130,22 @@ void GameScene::updateNewQuestion()
     }
     row2  = "=" +  std::to_string(this->numResult)  ;
     this->labelRow2->setString(row2.c_str());
+    
+    //update progress
+     this->scheduleUpdate();
+}
+
+void GameScene::update(float delta) {
+  
+//    float percent = fuelBar->getPercentage();
+//    percent -= 1.0f * delta;
+//    fuelBar->setPercentage(percent);
+//    
+//    if (percent<= 0.0f) {
+////        this->unscheduleUpdate();
+//        percent = 100.0f ;
+//        fuelBar->setPercentage(percent);
+//    }
 }
 
 void GameScene::nextRound()

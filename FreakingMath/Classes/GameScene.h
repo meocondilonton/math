@@ -32,12 +32,14 @@ public:
      int getRealResultNumber();
     void updateNewQuestion();
     void answareWrong();
+    void update(float delta);
     
 protected:
      cocos2d::LayerColor *colorLayer;
      cocos2d::Label *labelRow1;
      cocos2d::Label *labelRow2;
      Popup  *popup ;
+     ProgressTimer *fuelBar;
      int numA;
      int numB;
      int numResult;
